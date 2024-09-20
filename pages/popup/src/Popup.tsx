@@ -1,6 +1,6 @@
 import '@src/Popup.css';
 import { useStorage, withErrorBoundary, withSuspense } from '@extension/shared';
-import { exampleThemeStorage } from '@extension/storage';
+import { codeNameStorage, exampleThemeStorage } from '@extension/storage';
 import type { ComponentPropsWithoutRef } from 'react';
 
 const notificationOptions = {
@@ -12,6 +12,8 @@ const notificationOptions = {
 
 const Popup = () => {
   const theme = useStorage(exampleThemeStorage);
+  const codename = useStorage(codeNameStorage);
+  console.log(codename);
   const isLight = theme === 'light';
   const logo = isLight ? 'popup/logo_vertical.svg' : 'popup/logo_vertical_dark.svg';
 
